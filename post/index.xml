@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on WZChan&#39;s Blog</title>
+    <link>https://wzchan.github.io/post/</link>
+    <description>Recent content in Posts on WZChan&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© Copyright By WZChan.</copyright>
+    <lastBuildDate>Wed, 13 Dec 2017 12:27:46 +0800</lastBuildDate>
+    
+	<atom:link href="https://wzchan.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Win10&#43;Anaconda2&#43;vs2015&#43;cuDnn&#43;CUDA8.0安装caffe时需要注意的问题</title>
+      <link>https://wzchan.github.io/post/caffe/win10&#43;anconda2&#43;vs2015&#43;cudnn&#43;cuda8.0%E5%AE%89%E8%A3%85caffe%E6%97%B6%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Wed, 13 Dec 2017 12:27:46 +0800</pubDate>
+      
+      <guid>https://wzchan.github.io/post/caffe/win10&#43;anconda2&#43;vs2015&#43;cudnn&#43;cuda8.0%E5%AE%89%E8%A3%85caffe%E6%97%B6%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>总体的安装步骤按照官方文档或是windows10下用ninja编译配置caffe 在编译caffe实验环境的时候。应当对build_win.cmd中的内容进行相应的修改。
+但是我在按照文章中进行编译时，会有一些错误，下面进行说明：
+1、由于在官方知道说明文件中需要利用ninja来进行编译，目的是减少编译的时间，但是不知道我的电脑为什么，使用ninja编译的时候来时会报错： ninja: build stopped: subcommand failed.
+2、同时在进行ninja指令单独执行的时候后，会出现错误： ninja: error: loading &#39;build.ninja&#39;: 系统找不到指定的文件。的错误。 但是按照我找到的一篇直接利用 Python+ git编译ninjawindows 安装ninja的文章编译后，生成的文件夹中使用ninja时不会报出该错误。 所以猜测，可能是ninja的用法有误。 解决方法： 在编译caffe的时候修改build_win.cmd文件中控制是否用ninja的参数，如下：
+ :: Change to 1 to use Ninja generator (builds much faster) if NOT DEFINED WITH_NINJA set WITH_NINJA=0  将 = 号后原本为1 的内容改为 0，利用GCC去编译。 虽然时间会稍微久一点，但是不影响后续的使用。
+除此之外，在进行build_win.cmd的时候，由于限于我国特殊国情，所以有些prebuild的组件下不下来，鉴于此我找到了github的一个链接，可以把它下下来放在相应的文件夹内，Caffe: Problem in downloading prebuilt dependenies #5679</description>
+    </item>
+    
+    <item>
+      <title>Caffe命令备忘</title>
+      <link>https://wzchan.github.io/post/caffe/caffe%E5%91%BD%E4%BB%A4%E5%A4%87%E5%BF%98/</link>
+      <pubDate>Wed, 06 Dec 2017 16:42:12 +0800</pubDate>
+      
+      <guid>https://wzchan.github.io/post/caffe/caffe%E5%91%BD%E4%BB%A4%E5%A4%87%E5%BF%98/</guid>
+      <description>1. Train阶段 2. Test阶段 root_to_caffe/build/tools/caffe test
+-model 指定模型描述文件文本
+-weights 使用权重model
+-gpu 选用gpu设备
+-log_dir 保存log位置</description>
+    </item>
+    
+    <item>
+      <title>Git命令备忘</title>
+      <link>https://wzchan.github.io/post/cs/git_command/</link>
+      <pubDate>Wed, 06 Dec 2017 15:21:44 +0800</pubDate>
+      
+      <guid>https://wzchan.github.io/post/cs/git_command/</guid>
+      <description> 待更新 </description>
+    </item>
+    
+    <item>
+      <title>MacOS上传代码至GitHub的简单配置方法</title>
+      <link>https://wzchan.github.io/post/cs/macos%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81%E8%87%B3github%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Wed, 06 Dec 2017 15:18:54 +0800</pubDate>
+      
+      <guid>https://wzchan.github.io/post/cs/macos%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81%E8%87%B3github%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/</guid>
+      <description>准备工作：
+在github上注册用户
+下载git installer后（下载地址）
+打开终端（在launchpad中搜索“终端”）
+检查是否存在ssh，语句：cd ~/.ssh若提示没有该文件夹（-bash:cd: ～/.ssh: No such file or directory）
+输入：ssh－keygen －t rsa －C youremailaddress
+在-C 后输入你注册github时候的邮箱
+命令执行成功之后，会出现以下提示，根据提示进行相应设置
+Generating public/private rsa key pair. Enter file in which to save the key (/Users/username/.ssh/id_rsa):（默认路径，不填写则不更改） Created directory &#39;/Users/username/.ssh&#39;. Enter passphrase (empty for no passphrase):（在这里输入你的密码，4位以上） Enter same passphrase again:（重新输入确认） Your identification has been saved in /Users/username/.ssh/id_rsa. Your public key has been saved in /Users/username/.ssh/id_rsa.pub.（保存配置文件id_rsa.pub路径） The key fingerprint image SHA256:7Z2+JerI9it0bDxXeL++WxsU/I8ETlGzgATtXOwU4+4 email@address.com The key&#39;s randomart image is: +---[RSA 2048]----+ | .</description>
+    </item>
+    
+    <item>
+      <title>用draw_net.py绘制网络图时的小问题</title>
+      <link>https://wzchan.github.io/post/caffe/%E7%94%A8draw_net.py%E7%BB%98%E5%88%B6%E7%BD%91%E7%BB%9C%E5%9B%BE%E6%97%B6%E7%9A%84%E5%B0%8F%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Wed, 06 Dec 2017 15:18:22 +0800</pubDate>
+      
+      <guid>https://wzchan.github.io/post/caffe/%E7%94%A8draw_net.py%E7%BB%98%E5%88%B6%E7%BD%91%E7%BB%9C%E5%9B%BE%E6%97%B6%E7%9A%84%E5%B0%8F%E9%97%AE%E9%A2%98/</guid>
+      <description>在Windows10下利用Caffe的Python接口进行绘制神经网络模型图时，出现了如下问题：
+1. 无法加载pydot
+解决方法：
+在安装了Anconda的前提下使用
+conda install pydot
+但是由于conda设置之类的事情说是没办法找到相应的channel和下载文件。Google了一下，发现需要提前安装一下graphviz，于是：
+conda install graphviz
+安装成功之后继续：
+conda install pydot
+发现还是出错了，头皮发麻，用了pip：
+pip install pydot
+终于提示安装成功。
+至此解决了pydot和graphviz的问题。
+2. 运行draw_net.py后有报错
+pydot find_graphviz = pydot.graphviz.find_graphviz &#39;module&#39; object has no attribute &#39;graphviz&#39;  这个看了draw_net.py的源码，把文件中所有相应的pydot.graphviz改为pydot即可。
+可能是由于pydot的版本不一样造成的结果。</description>
+    </item>
+    
+    <item>
+      <title>用Caffe Python实现一个两层神经网络</title>
+      <link>https://wzchan.github.io/post/caffe/%E7%94%A8caffe-python%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E4%B8%A4%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Wed, 06 Dec 2017 15:17:28 +0800</pubDate>
+      
+      <guid>https://wzchan.github.io/post/caffe/%E7%94%A8caffe-python%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E4%B8%A4%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</guid>
+      <description>1. 首先准备一下原始数据 # *-* coding: utf-8 *-* import pickle import numpy as np # 划分类别的边界 def cos_curve(x): return 0.25*np.sin(2*x*np.pi+0.5*np.pi) + 0.5 # samples保存二维点的坐标，labels标明类别 np.random.seed(123) samples = [] labels = [] # 单位空间内平均样本数为50 sample_density = 50 for i in range(sample_density): x1, x2 = np.random.random(2) # 计算当前x1对应的分类边界 bound = cos_curve(x1) # 为了方便可视化，舍弃太靠近边界的样本 if bound - 0.1 &amp;lt; x2 &amp;lt;= bound + 0.1: continue else: samples.append((x1, x2)) # 打标签，上半部分为1，下半部分为2 if x2 &amp;gt; bound: labels.</description>
+    </item>
+    
+    <item>
+      <title>Lenet</title>
+      <link>https://wzchan.github.io/post/caffe/lenet/</link>
+      <pubDate>Wed, 06 Dec 2017 15:16:55 +0800</pubDate>
+      
+      <guid>https://wzchan.github.io/post/caffe/lenet/</guid>
+      <description>Lenet-5网络结构示意图: 第一层：输入层32x32（28x28）大小的图像。明显特征能够出现在最高层特征监测子感受野的中心。（笔画断续、角点）
+第二层：C1，卷积层。原始信号特征增强，降低噪音，不同的卷积核能够提取到不同的图像特征。
+ feature map个数：6个 32 * 32
+conv kernel大小：5 * 5
+神经元个数：(32 - 5 + 1) * (32 - 5 + 1) = 28 * 28
+训练参数个数： (5 * 5 + 1) * 6 = 156
+连接数： (5 * 5 + 1)* (28 * 28) * 6 = 122304
+ 第三层：S2，下采样层。降低网络训练参数和模型的过拟合程度。两种方法：均值、最大值。
+ feature map个数：6个14 * 14，与C1中的2 * 2的区域相连。
+神经元计算：sigmoid (2 * 2 的输入相加 * 一个训练参数 + 该feature map的bias)</description>
+    </item>
+    
+    <item>
+      <title>Python实现一个简单的图片物体标注工具</title>
+      <link>https://wzchan.github.io/post/python/python%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%9B%BE%E7%89%87%E7%89%A9%E4%BD%93%E6%A0%87%E6%B3%A8%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Wed, 06 Dec 2017 15:16:01 +0800</pubDate>
+      
+      <guid>https://wzchan.github.io/post/python/python%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%9B%BE%E7%89%87%E7%89%A9%E4%BD%93%E6%A0%87%E6%B3%A8%E5%B7%A5%E5%85%B7/</guid>
+      <description># coding: utf-8 &amp;quot;&amp;quot;&amp;quot; 物体检测标注小工具 基本思路： 对要标注的图像建立一个窗口循环，然后每次循环的时候对图像进行一次复制， 鼠标在画面上画框的操作、画好的框的相关信息在全局变量中保存， 并且在每个循环中根据这些信息，在复制的图像上重新画一遍，然后显示这份复制的图像。 简化的设计过程： 1、输入是一个文件夹的路径，包含了所需标注物体框的图片。 如果图片中标注了物体，则生成一个相同名称加额外后缀_bbox的文件，来保存标注信息。 2、标注的方式：按下鼠标左键选择物体框的左上角，松开鼠标左键选择物体框的右下角， 按下鼠标右键删除上一个标注好的物体框。 所有待标注物体的类别和标注框颜色由用户自定义。 如果没有定义则默认只标注一种物体，定义该物体名称为Object。 3、方向键 ← 和 → 键用来遍历图片， ↑ 和 ↓ 键用来选择当前要标注的物体， Delete键删除一种脏图片和对应的标注信息。 自定义标注物体和颜色的信息用一个元组表示 第一个元素表示物体名字 第二个元素表示BGR颜色的tuple或者代表标注框坐标的元祖 利用repr()保存和eval()读取 &amp;quot;&amp;quot;&amp;quot; &amp;quot;&amp;quot;&amp;quot; 一些说明： 1. 标注相关的物体标签文件即 .labels 结尾的文件，需要与所选文件夹添加到同一个根目录下 一定要注意这一点，否则无法更新标注物体的类型标签，致使从始至终都只有一个默认物体出现 我就是这个原因，拖了两三天才整好，当然也顺便仔细的读了这篇代码。同时也学习了@staticmethod以及相应Python的decorator的知识。 可以说，在曲折中前进才是棒的。 2. .labels文件为预设物体标签文件，其内容具体格式为: &#39;object1&#39;, (B, G, R) &#39;object2&#39;, (B, G, R) &#39;object3&#39;, (B, G, R)…… 具体见文后图片。 3. 最后生成的标注文件，在文后会有，到时再进行解释。 &amp;quot;&amp;quot;&amp;quot; import os import cv2 # tkinter是Python内置的简单GUI库，实现打开文件夹、确认删除等操作十分方便 from tkMessageBox import askyesno # 定义标注窗口的默认名称 WINDOW_NAME = &#39;Simple Bounding Box Labeling Tool&#39; # 定义画面刷新帧率 FPS = 24 # 定义支持的图像格式 SUPPORTED_FORMATS = [&#39;jpg&#39;, &#39;jpeg&#39;, &#39;png&#39;] # 定义默认物体框的名字为Object，颜色为蓝色，当没有用户自定义物体时，使用该物体 DEFAULT_COLOR = {&#39;Object&#39;: (255, 0, 0)} # 定义灰色，用于信息显示的背景和未定义物体框的显示 COLOR_GRAY = (192, 192, 192) # 在图像下方多处BAR_HEIGHT的区域，用于显示信息 BAR_HEIGHT = 16 # 上下左右,DELETE键对应的cv2.</description>
+    </item>
+    
+    <item>
+      <title>Python函数式编程</title>
+      <link>https://wzchan.github.io/post/python/python%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Wed, 06 Dec 2017 15:15:36 +0800</pubDate>
+      
+      <guid>https://wzchan.github.io/post/python/python%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</guid>
+      <description>函数是编程是一种抽象程度很高的编程范式。特点之一是允许将函数本身作为参数传入另一个函数。并且允许返回一个函数。
+1 高阶函数 变量可以指向的函数 f = abs 其中abs为一个函数，即变量f指向abs本身。
+函数名也是变量 abs()是函数，abs其实是一个指向该函数的变量。
+ps:abs定义在__builtin__模块中。
+传入函数 函数的参数可以接受变量，那么也可以接受其实是变量的函数名。
+&amp;gt;&amp;gt;&amp;gt;def add(x, y, f): return f(x) + f(y) &amp;gt;&amp;gt;&amp;gt;add(-9, 6, abs) 15  实际上就是abs(-9) + abs(6)的过程。
+#####总结：把函数作为参数传入，这样的函数就是高阶函数。
+2 map() / reduce() map() 接受两个参数：函数与序列。 map(f, [ something ]) map(str, [1, 2, 3, 4, 5, 6]) ==&amp;gt; [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;6&#39;] 实际上map()是把计算过程抽象化了。
+reduce() 接收两个参数：函数和序列。 与map()不同的是，reduce将接收到的函数作用在序列的每一个元素上并将其累计计算。
+&amp;gt;&amp;gt;&amp;gt; def fn(x, y): return x * 10 + y &amp;gt;&amp;gt;&amp;gt; reduce(fn, [1, 3, 5, 7, 9]) 13579  3 filter() filter()接收一个函数和一个序列。 它将传入的函数依次作用于每个元素，然后根据返回值决定保留或是丢弃。 例：找1~100之间的素数</description>
+    </item>
+    
+    <item>
+      <title>Python_decorator</title>
+      <link>https://wzchan.github.io/post/python/python_decorator/</link>
+      <pubDate>Wed, 06 Dec 2017 15:14:45 +0800</pubDate>
+      
+      <guid>https://wzchan.github.io/post/python/python_decorator/</guid>
+      <description>def my_shiny_new_decorator(a_function_to_decorate): def the_wrapper_around_the_original_function(): print &#39;Befor the function runs&#39; a_function_to_decorate() print &#39;After the function runs&#39; return the_wrapper_around_the_original_function def a_stand_alone_function(): print &amp;quot;I&#39;m a stand alone function, don&#39;t you dare modify me&amp;quot; a_stand_alone_function() a_stand_alone_function = my_shiny_new_decorator(a_stand_alone_function) a_stand_alone_function() @my_shiny_new_decorator def another_stand_alone_function(): print &#39;Leave me alone&#39; another_stand_alone_function()  输出结果：def bread(func): def wrapper(): print &amp;quot;&amp;lt;/&#39;&#39;&#39;&#39;&#39;&#39;\&amp;gt;&amp;quot; func() print &amp;quot;&amp;lt;/______\&amp;gt;&amp;quot; return wrapper def ingredients(func): def wrapper(): print &amp;quot;#tomatoes#&amp;quot; func() print &amp;quot;~salad~&amp;quot; return wrapper def sandwich(food=&amp;quot;--ham--&amp;quot;): print food sandwich = bread(ingredients(sandwich)) sandwich()  输出结果：def bread(func): def wrapper(): print &amp;quot;&amp;lt;/&#39;&#39;&#39;&#39;&#39;&#39;\&amp;gt;&amp;quot; func() print &amp;quot;&amp;lt;/______\&amp;gt;&amp;quot; return wrapper def ingredients(func): def wrapper(): print &amp;quot;#tomatoes#&amp;quot; func() print &amp;quot;~salad~&amp;quot; return wrapper @bread @ingredients def sandwich(food=&#39;--ham--&#39;): print food sandwich()  输出结果：</description>
+    </item>
+    
+    <item>
+      <title>Image_Augmentation</title>
+      <link>https://wzchan.github.io/post/python/image_augmentation/</link>
+      <pubDate>Wed, 06 Dec 2017 15:13:45 +0800</pubDate>
+      
+      <guid>https://wzchan.github.io/post/python/image_augmentation/</guid>
+      <description>一个增加图片数量的工具，实现crop等操作。
+image_augmentation.py ########## image_augmentation.py ############## # coding: utf-8 import numpy as np import cv2 &#39;&#39;&#39; 定义裁剪函数，四个参数如下 x0:左上角横坐标 y0:左上角纵坐标 w:裁剪宽度 h:裁剪高度 &#39;&#39;&#39; crop_image = lambda img, x0, y0, w, h: img[y0:y0 + h, x0:x0 + w] &#39;&#39;&#39; 随机裁剪 area_ratio 为裁剪画面占原画面的比例 hw_vari是 扰动 占 原高宽比 的比例范围 &#39;&#39;&#39; def random_crop(img, area_ratio, hw_vari): h, w = img.shape[:2] hw_delta = np.random.uniform(-hw_vari, hw_vari) hw_mult = 1 + hw_delta # 下标进行裁剪，宽高必须是正整数 w_crop = int(round(w*np.sqrt(area_ratio*hw_mult))) # 裁剪宽度不可超过原图可剪裁的宽度 if w_crop &amp;gt; w: w_crop = w h_crop = int(round(h*np.</description>
+    </item>
+    
+    <item>
+      <title>Excel数据清理</title>
+      <link>https://wzchan.github.io/post/python/excel%E6%95%B0%E6%8D%AE%E6%B8%85%E7%90%86/</link>
+      <pubDate>Wed, 06 Dec 2017 15:13:18 +0800</pubDate>
+      
+      <guid>https://wzchan.github.io/post/python/excel%E6%95%B0%E6%8D%AE%E6%B8%85%E7%90%86/</guid>
+      <description>之前由于需要处理一些从网站数据库直接提取出的excel表格，进行去重和对相应单位的编号，所以有了这一次Excel数据清洗的经历。
+下面就进行详细说明。
+ 目的：
+ 去重
+ 编号
+  使用语言：python
+涉及到的主要模块：
+ xlrd Pandas   一、知识准备 1、Pandas介绍 python的数据分析包，是作为金融数据分析工具而被开发的，这里我们主要是利用pandas将excel表格数据转化为其中的数据结构DataFrame，从而将操作excel表变成操作DataFrame。
+2、DataFrame 该数据结构是一个表格型的数据结构，包含一组有序的列，每列可以是不同的值类型。拥有行索引和列索引。 具体的关于DataFrame的操作这里给出一个比较好的使用说明，里面也有介绍Series的内容：Pandas使用指南
+3、xlrd介绍 在这次数据经历的工作中还使用到了python中来读取和存储excel的扩展模块——xlrd。 它的作用来对本次处理的excel表格进行读取和存储，同时也可以实现指定表单、指定单元格的读写。
+4、xlrd的基本操作 1）导入模块 import xlrd 2）打开Excel文件读取数据 data = xlrd.open_workbook(&#39;excelFile.xls&#39;) 3）使用技巧 获取一个工作表 table = data.sheets()[0] #通过索引顺序获取 table = data.sheet_by_index(0) #通过索引顺序获取 table = data.sheet_by_name(u&#39;Sheet1&#39;) #通过名称获取 获取整行和整列的值（数组） table.row_values(i) table.col_values(i) 获取行数和列数 nrows = table.nrows ncols = table.ncols 循环行列表数据 for i in range(nrows ): print table.row_values(i) 单元格 cell_A1 = table.</description>
+    </item>
+    
+    <item>
+      <title>关于python中带下划线的变量和函数的意义</title>
+      <link>https://wzchan.github.io/post/python/%E8%BD%AC%E5%85%B3%E4%BA%8Epython%E4%B8%AD%E5%B8%A6%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%84%E5%8F%98%E9%87%8F%E5%92%8C%E5%87%BD%E6%95%B0%E7%9A%84%E6%84%8F%E4%B9%89/</link>
+      <pubDate>Wed, 06 Dec 2017 15:12:24 +0800</pubDate>
+      
+      <guid>https://wzchan.github.io/post/python/%E8%BD%AC%E5%85%B3%E4%BA%8Epython%E4%B8%AD%E5%B8%A6%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%84%E5%8F%98%E9%87%8F%E5%92%8C%E5%87%BD%E6%95%B0%E7%9A%84%E6%84%8F%E4%B9%89/</guid>
+      <description>1 变量 1）前带 _ 的变量: 标明是一个私有变量, 只用于标明, 外部类还是可以访问到这个变量 2）前带两个 _ ,后带两个 _ 的变量:标明是内置变量, 3）大写加下划线的变量: 标明是不会发生改变的全局变量
+常量 : 大写加下划线
+USER_CONSTANT  对于不会发生改变的全局变量，使用大写加下划线。
+私有变量 : 小写和一个前导下划线
+_private_value  Python 中不存在私有变量一说，若是遇到需要保护的变量，使用小写和一个前导下划线。但这只是程序员之间的一个约定，用于警告说明这是一个私有变量，外部类不要去访问它。但实际上，外部类还是可以访问到这个变量。
+内置变量 : 小写，两个前导下划线和两个后置下划线
+__class__  两个前导下划线会导致变量在解释期间被更名。这是为了避免内置变量和其他变量产生冲突。用户定义的变量要严格避免这种风格。以免导致混乱。
+2 函数和方法 1）前带 _ 的变量: 标明是一个私有函数, 只用于标明, 2）前带两个 _ ,后带两个 _ 的函数: 标明是特殊函数
+总体而言应该使用，小写和下划线。但有些比较老的库使用的是混合大小写，即首单词小写，之后每个单词第一个字母大写，其余小写。但现在，小写和下划线已成为规范。
+私有方法 ： 小写和一个前导下划线
+def _secrete(self): print &amp;quot;don&#39;t test me.&amp;quot;  这里和私有变量一样，并不是真正的私有访问权限。同时也应该注意一般函数不要使用两个前导下划线(当遇到两个前导下划线时，Python 的名称改编特性将发挥作用)。 特殊函数后面会提及。
+特殊方法 ： 小写和两个前导下划线，两个后置下划线
+def __add__(self, other): return int.__add__(other)  这种风格只应用于特殊函数，比如操作符重载等。</description>
+    </item>
+    
+    <item>
+      <title>Caffe训练日志的可视化图表生成</title>
+      <link>https://wzchan.github.io/post/caffe/caffe%E8%AE%AD%E7%BB%83%E6%97%A5%E5%BF%97%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9B%BE%E8%A1%A8%E7%94%9F%E6%88%90/</link>
+      <pubDate>Wed, 06 Dec 2017 15:11:27 +0800</pubDate>
+      
+      <guid>https://wzchan.github.io/post/caffe/caffe%E8%AE%AD%E7%BB%83%E6%97%A5%E5%BF%97%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9B%BE%E8%A1%A8%E7%94%9F%E6%88%90/</guid>
+      <description> 在训练模型时，增加 -log_dir 路径参数来保证在相应路径下保存所需绘图的日志文件。并且将所需要进行分析的日志文件的后缀改为.log   将path_to_caffe\tools\extra下的三个文件拷贝到当前工作目录下，需要拷贝的文件如下。  需要注意的是，可以将最后一个的文件名改为plot_training_log.py方便查看使用。并且如果想要生成完整的可视化图表，这三个文件缺一不可。
+ 然后根据plot_training_log.py中的提示，在命令行中输入相应的参数，一般的命令格式为：  ...\plot_training_log.py param_types where_you_store_image.png where_your_log_is.log  其中可供选择的param_number如下：
+Supported chart types: 0: Test accuracy vs. Iters 1: Test accuracy vs. Seconds 2: Test loss vs. Iters 3: Test loss vs. Seconds 4: Train learning rate vs. Iters 5: Train learning rate vs. Seconds 6: Train loss vs. Iters 7: Train loss vs. Seconds  PS:在制作lmdb时候调用convert_imageset来进行数据转换
+D:\new_caffe\caffe\build\tools&amp;gt;convert_imageset.exe D:\python_caffe_test\Classification/  D:\python_caffe_test\Classification\train.txt D:\python_caffe_test\Classification\train_lmdb -resize_width 224 -resize_height 224 --shuffle  </description>
+    </item>
+    
+  </channel>
+</rss>

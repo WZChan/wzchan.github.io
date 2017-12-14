@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cs on WZChan&#39;s Blog</title>
+    <link>https://wzchan.github.io/tags/cs/</link>
+    <description>Recent content in Cs on WZChan&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© Copyright By WZChan.</copyright>
+    <lastBuildDate>Wed, 06 Dec 2017 15:21:44 +0800</lastBuildDate>
+    
+	<atom:link href="https://wzchan.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git命令备忘</title>
+      <link>https://wzchan.github.io/post/cs/git_command/</link>
+      <pubDate>Wed, 06 Dec 2017 15:21:44 +0800</pubDate>
+      
+      <guid>https://wzchan.github.io/post/cs/git_command/</guid>
+      <description> 待更新 </description>
+    </item>
+    
+    <item>
+      <title>MacOS上传代码至GitHub的简单配置方法</title>
+      <link>https://wzchan.github.io/post/cs/macos%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81%E8%87%B3github%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Wed, 06 Dec 2017 15:18:54 +0800</pubDate>
+      
+      <guid>https://wzchan.github.io/post/cs/macos%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81%E8%87%B3github%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/</guid>
+      <description>准备工作：
+在github上注册用户
+下载git installer后（下载地址）
+打开终端（在launchpad中搜索“终端”）
+检查是否存在ssh，语句：cd ~/.ssh若提示没有该文件夹（-bash:cd: ～/.ssh: No such file or directory）
+输入：ssh－keygen －t rsa －C youremailaddress
+在-C 后输入你注册github时候的邮箱
+命令执行成功之后，会出现以下提示，根据提示进行相应设置
+Generating public/private rsa key pair. Enter file in which to save the key (/Users/username/.ssh/id_rsa):（默认路径，不填写则不更改） Created directory &#39;/Users/username/.ssh&#39;. Enter passphrase (empty for no passphrase):（在这里输入你的密码，4位以上） Enter same passphrase again:（重新输入确认） Your identification has been saved in /Users/username/.ssh/id_rsa. Your public key has been saved in /Users/username/.ssh/id_rsa.pub.（保存配置文件id_rsa.pub路径） The key fingerprint image SHA256:7Z2+JerI9it0bDxXeL++WxsU/I8ETlGzgATtXOwU4+4 email@address.com The key&#39;s randomart image is: +---[RSA 2048]----+ | .</description>
+    </item>
+    
+  </channel>
+</rss>

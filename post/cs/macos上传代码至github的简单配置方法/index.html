@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>MacOS上传代码至GitHub的简单配置方法</title>
+
+  
+  
+
+
+
+
+
+  
+  <meta name="author" content="WZChan" />
+  <meta name="description" content="准备工作：
+在github上注册用户
+下载git installer后（下载地址）
+打开终端（在launchpad中搜索“终端”）
+检查是否存在ssh，语句：cd ~/.ssh若提示没有该文件夹（-bash:cd: ～/.ssh: No such file or directory）
+输入：ssh－keygen －t rsa －C youremailaddress
+在-C 后输入你注册github时候的邮箱
+命令执行成功之后，会出现以下提示，根据提示进行相应设置
+Generating public/private rsa key pair. Enter file in which to save the key (/Users/username/.ssh/id_rsa):（默认路径，不填写则不更改） Created directory &#39;/Users/username/.ssh&#39;. Enter passphrase (empty for no passphrase):（在这里输入你的密码，4位以上） Enter same passphrase again:（重新输入确认） Your identification has been saved in /Users/username/.ssh/id_rsa. Your public key has been saved in /Users/username/.ssh/id_rsa.pub.（保存配置文件id_rsa.pub路径） The key fingerprint image SHA256:7Z2&#43;JerI9it0bDxXeL&#43;&#43;WxsU/I8ETlGzgATtXOwU4&#43;4 email@address.com The key&#39;s randomart image is: &#43;---[RSA 2048]----&#43; | ." />
+
+  
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@ZiyanCh" />
+    <meta name="twitter:title" content="MacOS上传代码至GitHub的简单配置方法" />
+    <meta name="twitter:description" content="准备工作：
+在github上注册用户
+下载git installer后（下载地址）
+打开终端（在launchpad中搜索“终端”）
+检查是否存在ssh，语句：cd ~/.ssh若提示没有该文件夹（-bash:cd: ～/.ssh: No such file or directory）
+输入：ssh－keygen －t rsa －C youremailaddress
+在-C 后输入你注册github时候的邮箱
+命令执行成功之后，会出现以下提示，根据提示进行相应设置
+Generating public/private rsa key pair. Enter file in which to save the key (/Users/username/.ssh/id_rsa):（默认路径，不填写则不更改） Created directory &#39;/Users/username/.ssh&#39;. Enter passphrase (empty for no passphrase):（在这里输入你的密码，4位以上） Enter same passphrase again:（重新输入确认） Your identification has been saved in /Users/username/.ssh/id_rsa. Your public key has been saved in /Users/username/.ssh/id_rsa.pub.（保存配置文件id_rsa.pub路径） The key fingerprint image SHA256:7Z2&#43;JerI9it0bDxXeL&#43;&#43;WxsU/I8ETlGzgATtXOwU4&#43;4 email@address.com The key&#39;s randomart image is: &#43;---[RSA 2048]----&#43; | ." />
+    <meta name="twitter:image" content="https://wzchan.github.io/img/avatar.jpg" />
+  
+
+
+
+
+<meta name="generator" content="Hugo 0.31.1" />
+
+
+<link rel="canonical" href="https://wzchan.github.io/post/cs/macos%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81%E8%87%B3github%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/" />
+<link rel="alternative" href="https://wzchan.github.io/index.xml" title="WZChan&#39;s Blog" type="application/atom+xml" />
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+<meta name="google-site-verification" content="_moDmnnBNVLBN1rzNxyGUGdPHE20YgbmrtzLIbxaWFc" />
+
+
+
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="WZChan&#39;s Blog" />
+<meta name="msapplication-tooltip" content="WZChan&#39;s Blog" />
+<meta name='msapplication-navbutton-color' content="#5fbf5e" />
+<meta name="msapplication-TileColor" content="#5fbf5e" />
+<meta name="msapplication-TileImage" content="/img/tile-image-windows.png" />
+<link rel="icon" href="https://wzchan.github.io/img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://wzchan.github.io/img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://wzchan.github.io/img/favicon-32x32.png" />
+<link rel="icon" sizes="192x192" href="https://wzchan.github.io/img/touch-icon-android.png" />
+<link rel="apple-touch-icon" href="https://wzchan.github.io/img/touch-icon-apple.png" />
+<link rel="mask-icon" href="https://wzchan.github.io/img/safari-pinned-tab.svg" color="#5fbf5e" />
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/video.js/6.2.8/alt/video-js-cdn.min.css" />
+
+<link rel="stylesheet" href="https://wzchan.github.io/css/bundle.css" />
+
+
+  
+  <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/video.js/6.2.8/ie8/videojs-ie8.min.js"></script>
+  <![endif]-->
+
+<!--[if lte IE 11]>
+    <script src="//cdn.bootcss.com/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+
+<script src="//cdn.bootcss.com/object-fit-images/3.2.3/ofi.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/smooth-scroll/12.1.4/js/smooth-scroll.polyfills.min.js"></script>
+
+
+</head>
+  <body>
+    
+    <div class="suspension">
+      <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+  <img class="avatar" src="https://wzchan.github.io/img/icon.jpg" alt="Avatar">
+  
+  <h2 class="title">WZChan&#39;s Blog</h2>
+  
+  <p class="subtitle">~ Keep learning. &amp; Keep training. ~</p>
+  <button class="menu-toggle" type="button">
+    <span class="icon icon-menu"></span>
+  </button>
+  <nav class="site-menu collapsed">
+    <h2 class="offscreen">Main Menu</h2>
+    <ul class="menu-list">
+      
+      
+      
+      
+        <li class="menu-item
+            
+            
+            
+              is-active
+            ">
+            <a href="https://wzchan.github.io/">Home</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://weibo.com/chenwuzi">Weibo</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://wzchan.github.io/tags/">Tags</a>
+          </li>
+      
+        <li class="menu-item
+            
+            
+            ">
+            <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#cmd-markdown-%e9%ab%98%e9%98%b6%e8%af%ad%e6%b3%95%e6%89%8b%e5%86%8c">MarkDown</a>
+          </li>
+      
+    </ul>
+  </nav>
+  <nav class="social-menu collapsed">
+    <h2 class="offscreen">Social Networks</h2>
+    <ul class="social-list">
+
+      
+      <li class="social-item">
+        <a href="mailto:564224969@qq.com" title="Email"><span class="icon icon-email"></span></a>
+      </li>
+
+      
+      <li class="social-item">
+        <a href="//github.com/wzchan" title="GitHub"><span class="icon icon-github"></span></a>
+      </li>
+
+      <li class="social-item">
+        <a href="//twitter.com/ZiyanCh" title="Twitter"><span class="icon icon-twitter"></span></a>
+      </li>
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <li class="social-item">
+        <a href="//weibo.com/chenwuzi" title="Weibo"><span class="icon icon-weibo"></span></a>
+      </li>
+
+      <li class="social-item">
+        <a href="https://wzchan.github.io/img/wx.jpg" title="Wechat"><span class="icon icon-wechat"></span></a>
+      </li>
+
+      
+
+      
+
+      
+
+      <li class="social-item">
+        <a href="//space.bilibili.com/2129393" title="Bilibili"><span class="icon icon-bilibili"></span></a>
+      </li>
+
+      <li class="social-item">
+        <a href="https://wzchan.github.io/index.xml"><span class="icon icon-rss" title="RSS"></span></a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">MacOS上传代码至GitHub的简单配置方法</h1>
+      <p class="post-meta">@WZChan · Dec 6, 2017 · 1 min read</p>
+    </header>
+    <article class="post-content"><p>准备工作：</p>
+
+<p>在github上注册用户</p>
+
+<p>下载git installer后（<a href="http://git-scm.com/downloads">下载地址</a>）</p>
+
+<p>打开终端（在launchpad中搜索“终端”）</p>
+
+<p>检查是否存在ssh，语句：cd ~/.ssh若提示没有该文件夹（-bash:cd: ～/.ssh: No such file or directory）</p>
+
+<p>输入：ssh－keygen －t  rsa －C youremailaddress</p>
+
+<p>在-C 后输入你注册github时候的邮箱</p>
+
+<p>命令执行成功之后，会出现以下提示，根据提示进行相应设置</p>
+
+<pre><code>Generating public/private rsa key pair.
+
+Enter file in which to save the key (/Users/username/.ssh/id_rsa):（默认路径，不填写则不更改）
+
+Created directory '/Users/username/.ssh'.
+
+Enter passphrase (empty for no passphrase):（在这里输入你的密码，4位以上）
+
+Enter same passphrase again:（重新输入确认）
+
+Your identification has been saved in /Users/username/.ssh/id_rsa.
+
+Your public key has been saved in /Users/username/.ssh/id_rsa.pub.（保存配置文件id_rsa.pub路径）
+
+The key fingerprint image
+
+SHA256:7Z2+JerI9it0bDxXeL++WxsU/I8ETlGzgATtXOwU4+4 email@address.com
+
+The key's randomart image is:
+
+
++---[RSA 2048]----+
+
+|        .+.o=oo  |
+
+|          o.++.o |
+
+|         o ++..o |
+
+|         .o+o.o o|
+
+|        So. oo.o.|
+
+|    ..*o.o..o    |
+
+|       . o.oE o.+|
+
+|       .o. o o .+|
+
+|       .o+=.o..=o|
+
++----[SHA256]-----+
+</code></pre>
+
+<p>之后进入Github中，登陆并且点击自己头像旁边的小三角，点击Settings进行仓库设置</p>
+
+<p>进入之后，进行ssh and gpg keys 点击 new ssh key</p>
+
+<p>此处title可以填写你的邮箱地址，而key则需要填写id_rsa.pub中的内容</p>
+
+<p>此时利用cat指令将文件中的内容直接显示在你的终端中</p>
+
+<p>（cat ~/.ssh/id_rsa.pub）</p>
+
+<p>将这段代码贴入key中</p>
+
+<p>点击add ssh key即可</p>
+
+<p>在github上创建仓库，登陆github并且在设置中找到sshgithub配置：</p>
+
+<p>touch README.md</p>
+
+<p>git init</p>
+
+<p>git add README.md</p>
+
+<p>git commit –m ‘your commit’</p>
+
+<p>git remote add origin</p>
+
+<p>git@github.com:nameofyouraccount/yourpropersityname.git（将你的本地仓库与github上的仓库相互连接，origin是别名可以领取名字，youraccount是你github上注册的名字，yourpropersityname是你在创建仓库时给仓库起的名字。）</p>
+
+<p>git push –u origin master（将本地仓库的文件提交到master分支下，初始化需要使用–u 以后都不必使用）</p>
+
+<p>这步操作完成之后会上传你的README文件到github上的仓库中</p>
+
+<p>在创建origin的时候可能会出现错误：fatal: remote origin already exists.此时可以使用命令”git remote rm origin”将原油的origin删除，然后再重新执行git@github.com:nameofyouraccount/yourpropersityname.git命令即可。</p>
+
+<p>提交项目：</p>
+
+<p>提交某文件夹到github</p>
+
+<p>git add 文件路径（可以提交整个文件内容，包括源代码和整个工程）</p>
+
+<p>查看文件路径使用pwd 命令可以查看当前文件夹路径情况</p>
+
+<p>git commit –m（“添加注释”  这行命令用来添加注释）</p>
+
+<p>git push origin master（push你的文件到git上）</p>
+
+<p>成功后会在终端显示</p>
+
+<p>参考：</p>
+
+<p><a href="http://blog.csdn.net/yyh352091626/article/details/50714880">《Mac如何上传项目源代码至GitHub》——LeBron_Six</a></p>
+</article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="https://wzchan.github.io/tags/cs"><span class="tag">CS</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        © Copyright By WZChan.
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  <footer class="site-footer">
+  <p>© 2017 WZChan&#39;s Blog</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
+  
+</footer>
+
+
+
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+</script>
+<script type="text/x-mathjax-config">
+  // Fix <code> tags after MathJax finishes running. This is a
+  // hack to overcome a shortcoming of Markdown. Discussion at
+  // https://github.com/mojombo/jekyll/issues/199
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+
+<script src="https://wzchan.github.io/js/bundle.js"></script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-XXXXXXXX-X', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+  </body>
+</html>
