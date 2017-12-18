@@ -17,10 +17,8 @@
   
   <meta name="author" content="WZChan" />
   <meta name="description" content="图片在减均值后，会提高训练与预测的精度和速度。
-###1、二进制格式的均值计算
-../caffe/build/tools/Release/compute_image_mean ../file_name_lmdb /../mean.binaryproto  具体命令如上。
-###2、Python格式的均值计算
-需要用到Python接口或者进行特征可视化，需要Python格式的均值文件。 具体Python脚本如下：
+1、二进制格式的均值计算 ../caffe/build/tools/Release/compute_image_mean ../file_name_lmdb /../mean.binaryproto  具体命令如上。
+2、Python格式的均值计算 需要用到Python接口或者进行特征可视化，需要Python格式的均值文件。 具体Python脚本如下：
 import numpy as np import sys,caffe if len(sys.argv)!=3: print &amp;quot;Usage: python convert_mean.py mean.binaryproto mean.npy&amp;quot; sys.exit() blob = caffe.proto.caffe_pb2.BlobProto() bin_mean = open( sys.argv[1] , &#39;rb&#39; ).read() blob.ParseFromString(bin_mean) arr = np.array( caffe.io.blobproto_to_array(blob) ) npy_mean = arr[0] np.save( sys.argv[2] , npy_mean )  两个参数： 1、mean.binaryproto 二进制均值文件保存路径和文件名 2、mean.npy Python格式的均值文件保存路径和文件名" />
 
   
@@ -29,10 +27,8 @@ import numpy as np import sys,caffe if len(sys.argv)!=3: print &amp;quot;Usage: 
     <meta name="twitter:site" content="@ZiyanCh" />
     <meta name="twitter:title" content="Windows Caffe计算图片均值" />
     <meta name="twitter:description" content="图片在减均值后，会提高训练与预测的精度和速度。
-###1、二进制格式的均值计算
-../caffe/build/tools/Release/compute_image_mean ../file_name_lmdb /../mean.binaryproto  具体命令如上。
-###2、Python格式的均值计算
-需要用到Python接口或者进行特征可视化，需要Python格式的均值文件。 具体Python脚本如下：
+1、二进制格式的均值计算 ../caffe/build/tools/Release/compute_image_mean ../file_name_lmdb /../mean.binaryproto  具体命令如上。
+2、Python格式的均值计算 需要用到Python接口或者进行特征可视化，需要Python格式的均值文件。 具体Python脚本如下：
 import numpy as np import sys,caffe if len(sys.argv)!=3: print &amp;quot;Usage: python convert_mean.py mean.binaryproto mean.npy&amp;quot; sys.exit() blob = caffe.proto.caffe_pb2.BlobProto() bin_mean = open( sys.argv[1] , &#39;rb&#39; ).read() blob.ParseFromString(bin_mean) arr = np.array( caffe.io.blobproto_to_array(blob) ) npy_mean = arr[0] np.save( sys.argv[2] , npy_mean )  两个参数： 1、mean.binaryproto 二进制均值文件保存路径和文件名 2、mean.npy Python格式的均值文件保存路径和文件名" />
     <meta name="twitter:image" content="https://wzchan.github.io/img/avatar.jpg" />
   
@@ -233,16 +229,18 @@ import numpy as np import sys,caffe if len(sys.argv)!=3: print &amp;quot;Usage: 
       <h1 class="post-title">Windows Caffe计算图片均值</h1>
       <p class="post-meta">@WZChan · Dec 18, 2017 · 1 min read</p>
     </header>
-    <article class="post-content"><p>图片在减均值后，会提高训练与预测的精度和速度。</p>
+    <article class="post-content">
 
-<p>###1、二进制格式的均值计算</p>
+<p>图片在减均值后，会提高训练与预测的精度和速度。</p>
+
+<h3 id="1-二进制格式的均值计算">1、二进制格式的均值计算</h3>
 
 <pre><code>../caffe/build/tools/Release/compute_image_mean ../file_name_lmdb /../mean.binaryproto
 </code></pre>
 
 <p>具体命令如上。</p>
 
-<p>###2、Python格式的均值计算</p>
+<h3 id="2-python格式的均值计算">2、Python格式的均值计算</h3>
 
 <p>需要用到Python接口或者进行特征可视化，需要Python格式的均值文件。
 具体Python脚本如下：</p>

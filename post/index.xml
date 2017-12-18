@@ -19,10 +19,8 @@
       
       <guid>https://wzchan.github.io/post/caffe/compute_image_mean/</guid>
       <description>图片在减均值后，会提高训练与预测的精度和速度。
-###1、二进制格式的均值计算
-../caffe/build/tools/Release/compute_image_mean ../file_name_lmdb /../mean.binaryproto  具体命令如上。
-###2、Python格式的均值计算
-需要用到Python接口或者进行特征可视化，需要Python格式的均值文件。 具体Python脚本如下：
+1、二进制格式的均值计算 ../caffe/build/tools/Release/compute_image_mean ../file_name_lmdb /../mean.binaryproto  具体命令如上。
+2、Python格式的均值计算 需要用到Python接口或者进行特征可视化，需要Python格式的均值文件。 具体Python脚本如下：
 import numpy as np import sys,caffe if len(sys.argv)!=3: print &amp;quot;Usage: python convert_mean.py mean.binaryproto mean.npy&amp;quot; sys.exit() blob = caffe.proto.caffe_pb2.BlobProto() bin_mean = open( sys.argv[1] , &#39;rb&#39; ).read() blob.ParseFromString(bin_mean) arr = np.array( caffe.io.blobproto_to_array(blob) ) npy_mean = arr[0] np.save( sys.argv[2] , npy_mean )  两个参数： 1、mean.binaryproto 二进制均值文件保存路径和文件名 2、mean.npy Python格式的均值文件保存路径和文件名</description>
     </item>
     
