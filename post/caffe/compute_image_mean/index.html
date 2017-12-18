@@ -233,14 +233,14 @@ import numpy as np import sys,caffe if len(sys.argv)!=3: print &amp;quot;Usage: 
 
 <p>图片在减均值后，会提高训练与预测的精度和速度。</p>
 
-<h3 id="1-二进制格式的均值计算">1、二进制格式的均值计算</h3>
+<h4 id="1-二进制格式的均值计算">1、二进制格式的均值计算</h4>
 
 <pre><code>../caffe/build/tools/Release/compute_image_mean ../file_name_lmdb /../mean.binaryproto
 </code></pre>
 
 <p>具体命令如上。</p>
 
-<h3 id="2-python格式的均值计算">2、Python格式的均值计算</h3>
+<h4 id="2-python格式的均值计算">2、Python格式的均值计算</h4>
 
 <p>需要用到Python接口或者进行特征可视化，需要Python格式的均值文件。
 具体Python脚本如下：</p>
