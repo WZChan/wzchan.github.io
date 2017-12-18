@@ -5,9 +5,7 @@
   <meta charset="utf-8" />
 
   
-  <title>
-  Tags | WZChan&#39;s Blog(Supported By Hugo!)
-</title>
+  <title>Caffe模型日志级别设置(Python)</title>
 
   
   
@@ -18,14 +16,20 @@
 
   
   <meta name="author" content="WZChan" />
-  <meta name="description" content="Blog for everything!" />
+  <meta name="description" content="在训练Caffe模型的时候，可能会根据需要做一些对于Caffe加载模型时日志的显示，代码如下:
+os.environ[&#39;GLOG_minloglevel&#39;] = &#39;2&#39; import caffe  具体的日志级别如下：
+0 - debug 1 - info (still a LOT of outputs) 2 - warnings 3 - errors  " />
 
   
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@ZiyanCh" />
-  <meta name="twitter:title" content="WZChan&#39;s Blog(Supported By Hugo!)" />
-  <meta name="twitter:description" content="Blog for everything!" />
-  <meta name="twitter:image" content="https://wzchan.github.io/img/avatar.jpg" />
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@ZiyanCh" />
+    <meta name="twitter:title" content="Caffe模型日志级别设置(Python)" />
+    <meta name="twitter:description" content="在训练Caffe模型的时候，可能会根据需要做一些对于Caffe加载模型时日志的显示，代码如下:
+os.environ[&#39;GLOG_minloglevel&#39;] = &#39;2&#39; import caffe  具体的日志级别如下：
+0 - debug 1 - info (still a LOT of outputs) 2 - warnings 3 - errors  " />
+    <meta name="twitter:image" content="https://wzchan.github.io/img/avatar.jpg" />
+  
 
 
 
@@ -33,7 +37,7 @@
 <meta name="generator" content="Hugo 0.31.1" />
 
 
-<link rel="canonical" href="https://wzchan.github.io/tags/" />
+<link rel="canonical" href="https://wzchan.github.io/post/caffe/caffe%E6%A8%A1%E5%9E%8B%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB%E8%AE%BE%E7%BD%AEpython/" />
 <link rel="alternative" href="https://wzchan.github.io/index.xml" title="WZChan&#39;s Blog" type="application/atom+xml" />
 
 
@@ -97,6 +101,8 @@
     <div class="suspension">
       <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
       
+        
+      
     </div>
     
     
@@ -119,6 +125,8 @@
         <li class="menu-item
             
             
+            
+              is-active
             ">
             <a href="https://wzchan.github.io/">Home</a>
           </li>
@@ -131,8 +139,6 @@
           </li>
       
         <li class="menu-item
-            
-              is-active
             
             
             ">
@@ -216,23 +222,41 @@
   </nav>
 </header>
 
-  <section class="main post-detail terms-list">
+  <section class="main post-detail">
     <header class="post-header">
-      <h1 class="post-title">Tags</h1>
+      <h1 class="post-title">Caffe模型日志级别设置(Python)</h1>
+      <p class="post-meta">@WZChan · Dec 15, 2017 · 1 min read</p>
     </header>
-    <div class="tags-cloud">
+    <article class="post-content"><p>在训练Caffe模型的时候，可能会根据需要做一些对于Caffe加载模型时日志的显示，代码如下:</p>
+
+<pre><code>os.environ['GLOG_minloglevel'] = '2'
+import caffe
+
+</code></pre>
+
+<p>具体的日志级别如下：</p>
+
+<pre><code>0 - debug
+1 - info (still a LOT of outputs)
+2 - warnings
+3 - errors
+</code></pre>
+</article>
+    <footer class="post-footer">
       
-      
+      <ul class="post-tags">
         
-        <a href="https://wzchan.github.io/tags/caffe/" class="tag-xl">caffe</a>
-      
+          <li><a href="https://wzchan.github.io/tags/caffe"><span class="tag">Caffe</span></a></li>
         
-        <a href="https://wzchan.github.io/tags/python/" class="tag-xxl">python</a>
+      </ul>
       
-        
-        <a href="https://wzchan.github.io/tags/cs/" class="tag-m">cs</a>
+      <p class="post-copyright">
+        © Copyright By WZChan.
+      </p>
+    </footer>
+    
       
-    </div>
+    
   </section>
   <footer class="site-footer">
   <p>© 2017 WZChan&#39;s Blog</p>

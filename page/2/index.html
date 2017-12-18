@@ -221,6 +221,41 @@
       
         <article class="post-entry">
   <header class="post-header">
+    <h3 class="post-title"><a href="https://wzchan.github.io/post/python/python%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" class="post-link">Python函数式编程</a></h3>
+    <p class="post-meta">@WZChan · Dec 6, 2017 · 1 min read</p>
+  </header>
+  
+  <p class="post-summary">函数是编程是一种抽象程度很高的编程范式。特点之一是允许将函数本身作为参数传入另一个函数。并且允许返回一个函数。
+1 高阶函数 变量可以指向的函数 f = abs 其中abs为一个函数，即变量f指向abs本身。
+函数名也是变量 abs()是函数，abs其实是一个指向该函数的变量。
+ps:abs定义在__builtin__模块中。
+传入函数 函数的参数可以接受变量，那么也可以接受其实是变量的函数名。
+&gt;&gt;&gt;def add(x, y, f): return f(x) &#43; f(y) &gt;&gt;&gt;add(-9, 6, abs) 15  实际上就是abs(-9) &#43; abs(6)的过程。
+#####总结：把函数作为参数传入，这样的函数就是高阶函数。
+2 map() / reduce() map() 接受两个参数：函数与序列。 map(f, [ something ]) map(str, [1, 2, 3, 4, 5, 6]) ==&gt; [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;6&#39;] 实际上map()是把计算过程抽象化了。
+reduce() 接收两个参数：函数和序列。 与map()不同的是，reduce将接收到的函数作用在序列的每一个元素上并将其累计计算。
+&gt;&gt;&gt; def fn(x, y): return x * 10 &#43; y &gt;&gt;&gt; reduce(fn, [1, 3, 5, 7, 9]) 13579  3 filter() filter()接收一个函数和一个序列。 它将传入的函数依次作用于每个元素，然后根据返回值决定保留或是丢弃。 例：找1~100之间的素数</p>
+  <footer class="post-footer">
+    <a class="read-more" href="https://wzchan.github.io/post/python/python%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/">Read More →</a>
+  </footer>
+</article>
+
+      
+        <article class="post-entry">
+  <header class="post-header">
+    <h3 class="post-title"><a href="https://wzchan.github.io/post/python/python_decorator/" class="post-link">Python_decorator</a></h3>
+    <p class="post-meta">@WZChan · Dec 6, 2017 · 1 min read</p>
+  </header>
+  
+  <p class="post-summary">def my_shiny_new_decorator(a_function_to_decorate): def the_wrapper_around_the_original_function(): print &#39;Befor the function runs&#39; a_function_to_decorate() print &#39;After the function runs&#39; return the_wrapper_around_the_original_function def a_stand_alone_function(): print &#34;I&#39;m a stand alone function, don&#39;t you dare modify me&#34; a_stand_alone_function() a_stand_alone_function = my_shiny_new_decorator(a_stand_alone_function) a_stand_alone_function() @my_shiny_new_decorator def another_stand_alone_function(): print &#39;Leave me alone&#39; another_stand_alone_function()  输出结果：def bread(func): def wrapper(): print &#34;&lt;/&#39;&#39;&#39;&#39;&#39;&#39;\&gt;&#34; func() print &#34;&lt;/______\&gt;&#34; return wrapper def ingredients(func): def wrapper(): print &#34;#tomatoes#&#34; func() print &#34;~salad~&#34; return wrapper def sandwich(food=&#34;--ham--&#34;): print food sandwich = bread(ingredients(sandwich)) sandwich()  输出结果：def bread(func): def wrapper(): print &#34;&lt;/&#39;&#39;&#39;&#39;&#39;&#39;\&gt;&#34; func() print &#34;&lt;/______\&gt;&#34; return wrapper def ingredients(func): def wrapper(): print &#34;#tomatoes#&#34; func() print &#34;~salad~&#34; return wrapper @bread @ingredients def sandwich(food=&#39;--ham--&#39;): print food sandwich()  输出结果：</p>
+  <footer class="post-footer">
+    <a class="read-more" href="https://wzchan.github.io/post/python/python_decorator/">Read More →</a>
+  </footer>
+</article>
+
+      
+        <article class="post-entry">
+  <header class="post-header">
     <h3 class="post-title"><a href="https://wzchan.github.io/post/python/image_augmentation/" class="post-link">Image_Augmentation</a></h3>
     <p class="post-meta">@WZChan · Dec 6, 2017 · 5 min read</p>
   </header>
