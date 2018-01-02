@@ -5,7 +5,11 @@
   <meta charset="utf-8" />
 
   
-  <title>Python_decorator</title>
+  <title>
+  Tag → c&#43;&#43;
+  
+   | WZChan&#39;s Blog(Supported By Hugo!)
+</title>
 
   
   
@@ -16,16 +20,14 @@
 
   
   <meta name="author" content="WZChan" />
-  <meta name="description" content="def my_shiny_new_decorator(a_function_to_decorate): def the_wrapper_around_the_original_function(): print &#39;Befor the function runs&#39; a_function_to_decorate() print &#39;After the function runs&#39; return the_wrapper_around_the_original_function def a_stand_alone_function(): print &amp;quot;I&#39;m a stand alone function, don&#39;t you dare modify me&amp;quot; a_stand_alone_function() a_stand_alone_function = my_shiny_new_decorator(a_stand_alone_function) a_stand_alone_function() @my_shiny_new_decorator def another_stand_alone_function(): print &#39;Leave me alone&#39; another_stand_alone_function()  输出结果：def bread(func): def wrapper(): print &amp;quot;&amp;lt;/&#39;&#39;&#39;&#39;&#39;&#39;\&amp;gt;&amp;quot; func() print &amp;quot;&amp;lt;/______\&amp;gt;&amp;quot; return wrapper def ingredients(func): def wrapper(): print &amp;quot;#tomatoes#&amp;quot; func() print &amp;quot;~salad~&amp;quot; return wrapper def sandwich(food=&amp;quot;--ham--&amp;quot;): print food sandwich = bread(ingredients(sandwich)) sandwich()  输出结果：def bread(func): def wrapper(): print &amp;quot;&amp;lt;/&#39;&#39;&#39;&#39;&#39;&#39;\&amp;gt;&amp;quot; func() print &amp;quot;&amp;lt;/______\&amp;gt;&amp;quot; return wrapper def ingredients(func): def wrapper(): print &amp;quot;#tomatoes#&amp;quot; func() print &amp;quot;~salad~&amp;quot; return wrapper @bread @ingredients def sandwich(food=&#39;--ham--&#39;): print food sandwich()  输出结果：" />
+  <meta name="description" content="Blog for everything!" />
 
   
-  
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@ZiyanCh" />
-    <meta name="twitter:title" content="Python_decorator" />
-    <meta name="twitter:description" content="def my_shiny_new_decorator(a_function_to_decorate): def the_wrapper_around_the_original_function(): print &#39;Befor the function runs&#39; a_function_to_decorate() print &#39;After the function runs&#39; return the_wrapper_around_the_original_function def a_stand_alone_function(): print &amp;quot;I&#39;m a stand alone function, don&#39;t you dare modify me&amp;quot; a_stand_alone_function() a_stand_alone_function = my_shiny_new_decorator(a_stand_alone_function) a_stand_alone_function() @my_shiny_new_decorator def another_stand_alone_function(): print &#39;Leave me alone&#39; another_stand_alone_function()  输出结果：def bread(func): def wrapper(): print &amp;quot;&amp;lt;/&#39;&#39;&#39;&#39;&#39;&#39;\&amp;gt;&amp;quot; func() print &amp;quot;&amp;lt;/______\&amp;gt;&amp;quot; return wrapper def ingredients(func): def wrapper(): print &amp;quot;#tomatoes#&amp;quot; func() print &amp;quot;~salad~&amp;quot; return wrapper def sandwich(food=&amp;quot;--ham--&amp;quot;): print food sandwich = bread(ingredients(sandwich)) sandwich()  输出结果：def bread(func): def wrapper(): print &amp;quot;&amp;lt;/&#39;&#39;&#39;&#39;&#39;&#39;\&amp;gt;&amp;quot; func() print &amp;quot;&amp;lt;/______\&amp;gt;&amp;quot; return wrapper def ingredients(func): def wrapper(): print &amp;quot;#tomatoes#&amp;quot; func() print &amp;quot;~salad~&amp;quot; return wrapper @bread @ingredients def sandwich(food=&#39;--ham--&#39;): print food sandwich()  输出结果：" />
-    <meta name="twitter:image" content="https://wzchan.github.io/img/avatar.jpg" />
-  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@ZiyanCh" />
+  <meta name="twitter:title" content="WZChan&#39;s Blog(Supported By Hugo!)" />
+  <meta name="twitter:description" content="Blog for everything!" />
+  <meta name="twitter:image" content="https://wzchan.github.io/img/avatar.jpg" />
 
 
 
@@ -33,7 +35,7 @@
 <meta name="generator" content="Hugo 0.31.1" />
 
 
-<link rel="canonical" href="https://wzchan.github.io/post/python/python_decorator/" />
+<link rel="canonical" href="https://wzchan.github.io/tags/c&#43;&#43;/" />
 <link rel="alternative" href="https://wzchan.github.io/index.xml" title="WZChan&#39;s Blog" type="application/atom+xml" />
 
 
@@ -97,8 +99,6 @@
     <div class="suspension">
       <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
       
-        
-      
     </div>
     
     
@@ -121,8 +121,6 @@
         <li class="menu-item
             
             
-            
-              is-active
             ">
             <a href="https://wzchan.github.io/">Home</a>
           </li>
@@ -218,99 +216,34 @@
   </nav>
 </header>
 
-  <section class="main post-detail">
-    <header class="post-header">
-      <h1 class="post-title">Python_decorator</h1>
-      <p class="post-meta">@WZChan · Dec 6, 2017 · 1 min read</p>
+  <section class="main post-list">
+    <header class="list-header offscreen">
+      <h2 class="list-label">Posts List</h2>
     </header>
-    <article class="post-content"><pre><code>def my_shiny_new_decorator(a_function_to_decorate):
-    def the_wrapper_around_the_original_function():
-        print 'Befor the function runs'
-
-        a_function_to_decorate()
-
-        print 'After the function runs'
-
-    return the_wrapper_around_the_original_function
-
-def a_stand_alone_function():
-    print &quot;I'm a stand alone function, don't you dare modify me&quot;
-
-a_stand_alone_function()
-
-a_stand_alone_function = my_shiny_new_decorator(a_stand_alone_function)
-a_stand_alone_function()
-
-@my_shiny_new_decorator
-def another_stand_alone_function():
-    print 'Leave me alone'
-
-another_stand_alone_function()
-</code></pre>
-
-<p>输出结果：<img src="https://wzchan.github.io/img/Python_decorator/leavemealone.png" alt="leave me alone" /></p>
-
-<pre><code>def bread(func):
-    def wrapper():
-        print &quot;&lt;/''''''\&gt;&quot;
-        func()
-        print &quot;&lt;/______\&gt;&quot;
-    return wrapper
-
-def ingredients(func):
-    def wrapper():
-        print &quot;#tomatoes#&quot;
-        func()
-        print &quot;~salad~&quot;
-    return wrapper
-def sandwich(food=&quot;--ham--&quot;):
-    print food
-
-sandwich = bread(ingredients(sandwich))
-sandwich()
-</code></pre>
-
-<p>输出结果：<img src="https://wzchan.github.io/img/Python_decorator/Hamburg.png" alt="Hamburg" /></p>
-
-<pre><code>def bread(func):
-    def wrapper():
-        print &quot;&lt;/''''''\&gt;&quot;
-        func()
-        print &quot;&lt;/______\&gt;&quot;
-    return wrapper
-
-def ingredients(func):
-    def wrapper():
-        print &quot;#tomatoes#&quot;
-        func()
-        print &quot;~salad~&quot;
-    return wrapper
-
-
-@bread
-@ingredients
-def sandwich(food='--ham--'):
-    print food
-
-sandwich()
-</code></pre>
-
-<p>输出结果：<img src="https://wzchan.github.io/img/Python_decorator/humburger.png" alt="hamburger" /></p>
-</article>
-    <footer class="post-footer">
-      
-      <ul class="post-tags">
-        
-          <li><a href="https://wzchan.github.io/tags/python"><span class="tag">Python</span></a></li>
-        
-      </ul>
-      
-      <p class="post-copyright">
-        © Copyright By WZChan.
-      </p>
-    </footer>
+    
     
       
+        <article class="post-entry">
+  <header class="post-header">
+    <h3 class="post-title"><a href="https://wzchan.github.io/post/c&#43;&#43;/vs%E4%B8%8Brelease%E5%92%8Cdebug%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-link">VS下Release和Debug之间的区别</a></h3>
+    <p class="post-meta">@WZChan · Dec 19, 2017 · 1 min read</p>
+  </header>
+  
+  <p class="post-summary">Debug:
+通常称为调试版本，通过编译选项的配合，编译的结果通常包含调试信息，可以设置断点、单步调试、使用TRACE\ASSERT等调试输出语句并且编译器不会对代码进行任何优化，可以使开发人员提供强大的应用程序调试能力。
+Release：
+通常称为发布版本，是为了用户的使用，一般发布版本上不允许进行调试，所以Release版本通常不包含调试信息，同时，它往往进行了各种优化，以期达到代码量最小和效率最高的目的。
+Debug版本程序通常比Release版本程序慢，尤其是在处理视频方面。在Release模式对程序进行挑食时候经常会遇到变量虽然已经初始化，但是在查看其值的时候却发现是一个随机数，而并不是已经初始化的值，有时候在对变量进行监视的时候，会出现找不到变量的情况，具体原因如下；
+Debug跟Release在初始化变量时所做的操作是不同的。
+Debug是将每个字结尾都赋为0xcc，而Release的赋值近似于随机。如果程序中的某个变量没被初始化就被引用，就很有可能出现异常：用作控制变量将导致流程导向不一致；用作数组下标会使程序崩溃；更加可能是造成其他变量的不准确而引起其他的错误。所以变量声明后马上对其初始化一个默认的值是最简单有效的办法。
+代码存在错误在debug方式下可能会被忽略而不被察觉到，Debug方式下数组越界在有的情况下也不会出错，但是在Release版本中就会暴露出来。</p>
+  <footer class="post-footer">
+    <a class="read-more" href="https://wzchan.github.io/post/c&#43;&#43;/vs%E4%B8%8Brelease%E5%92%8Cdebug%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB/">Read More →</a>
+  </footer>
+</article>
+
+      
+    
     
   </section>
   <footer class="site-footer">

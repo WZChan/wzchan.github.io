@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© Copyright By WZChan.</copyright>
-    <lastBuildDate>Mon, 18 Dec 2017 11:19:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 19 Dec 2017 10:52:41 +0800</lastBuildDate>
     
 	<atom:link href="https://wzchan.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>https://wzchan.github.io/tags/c&#43;&#43;/</link>
+      <pubDate>Tue, 19 Dec 2017 10:52:41 +0800</pubDate>
+      
+      <guid>https://wzchan.github.io/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Caffe</title>
